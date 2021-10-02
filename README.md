@@ -1,2 +1,9 @@
 # gcodeThumb
-Thumbnails from .gcode headers, with fallback renderer. (Slicers may be configured to put thumbnails in gcode headers. This tool will render them. Otherwise, it will generate a quick preview, complete with "layer lines" and other unavoidable artifacts from the .gcode itself.)
+Extracts thumbnails from `.gcode` headers, or renders them if not present.
+
+## Optional: Configure slicers to embed thumbnails
+If embedded thumbnails are present, `gcodeThumb.py` will extract them quickly and efficiently.
+  * [Configure Prusaslicer](https://duckduckgo.com/?q=Prusa+printer.ini+embed+thumbnails&ia=web)
+  * [Configure Cura](https://github.com/Razor10021990/SnapmakerGcodeWriter)
+
+
