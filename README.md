@@ -5,7 +5,7 @@ Includes configuration of file managers to show embedded previews.
 
 ## Optional configuration.
 You may optionally configure slicers to embed thumbnails.
-If embedded thumbnails are present, `gcodeThumb.py` will extract them. They aren't necessary though. Some people prefer the generated thumbnails because they show extra details about the printing process.
+If embedded thumbnails are present, `gcodeThumb.py` will extract them. They aren't necessary though.
   * [Configure Prusaslicer](https://duckduckgo.com/?q=Prusa+printer.ini+embed+thumbnails&ia=web)
   * [Configure Cura](https://github.com/Razor10021990/SnapmakerGcodeWriter)
 
