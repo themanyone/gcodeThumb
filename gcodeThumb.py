@@ -118,7 +118,11 @@ def drawFromGcode(gcode, size):
                     if field[1] > '9' or field[1] < '-':
                         continue
                     digits = re.sub("[^0-9\-\.]+", "", field[1:])
-                    f=field[0]; val=float(digits)
+                    f=field[0];
+                    try:
+                        val=float(digits)
+                    except:
+                        pass
                     X=val if f=='X' else X
                     Y=val if f=='Y' else Y
                     if f=='Z':
