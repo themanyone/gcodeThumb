@@ -1,9 +1,11 @@
 # gcodeThumb
 Extracts thumbnails from `.gcode` headers, or renders them if not present.
 
+Includes configuration of file managers to show embedded previews.
+
 ## Optional configuration.
 You may optionally configure slicers to embed thumbnails.
-If embedded thumbnails are present, `gcodeThumb.py` will extract them. They aren't necessary though. Some people prefer the look of our parsed-gcode files because they show details like skirt and brim.
+If embedded thumbnails are present, `gcodeThumb.py` will extract them. They aren't necessary though. Some people prefer the generated thumbnails because they show extra details about the printing process.
   * [Configure Prusaslicer](https://duckduckgo.com/?q=Prusa+printer.ini+embed+thumbnails&ia=web)
   * [Configure Cura](https://github.com/Razor10021990/SnapmakerGcodeWriter)
 
@@ -11,7 +13,7 @@ This example shows an embedded thumbnail (orange) alongside our generated thumbn
 ![example](example.png)
 
 ## Limitations
-The code takes huge shortcuts to minimize memory usage and dependencies. The gcode parser doesn't support curves perfectly. It treats them as lines. The renderer fakes 3D by subtracting Y-Z. The shader is literally just layer height. But that's not all. Rendering from gcode introduces unavoidable artifacts, including "layer lines," "skirts," "brims," and "purge towers." If you don't like the look, configure slicers to embed previews.
+The code takes colossal shortcuts to minimize memory usage and dependencies. The parser doesn't support curves perfectly. It treats them as lines. The renderer fakes 3D by subtracting Y-Z. The shader is literally just layer height. But that's not all. Tracing the path of print head moves from gcode introduces unavoidable artifacts, including "layer lines," "skirts," "brims," and "purge towers." If the results are unsatisfactory, configure slicers to embed previews.
 
 Written with Linux in mind. The Python parts should work on Windows, though. If not, [report an issue](https://github.com/themanyone/gcodeThumb/issues) ⏫ 
 
