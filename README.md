@@ -13,7 +13,7 @@ This example shows an embedded thumbnail (orange) alongside our generated thumbn
 ## Limitations
 The code takes huge shortcuts to minimize memory usage and dependencies. The gcode parser doesn't support curves perfectly. It treats them as lines. The renderer fakes 3D by subtracting Y-Z. The shader is literally just layer height. But that's not all. Rendering from gcode introduces unavoidable artifacts, including "layer lines," "skirts," "brims," and "purge towers." If you don't like the look, configure slicers to embed previews.
 
-Written with Linux in mind. The Python parts should work on Windows, though. If not, [report an issue](https://github.com/themanyone/gcodeThumb/issues) ⏫
+Written with Linux in mind. The Python parts should work on Windows, though. If not, [report an issue](https://github.com/themanyone/gcodeThumb/issues) ⏫ 
 
 ## Requirements
 Python3. PIL image library.
@@ -39,3 +39,5 @@ If no thumbnails are generated, follow the above instruction to clear the thumbn
 Sometimes GTK bugs out, and it becomes necessary to update its icon cache as well.
 
 `gtk-update-icon-cache ~/.local/share/icons/hicolor/ -t`
+
+Get recent code updates, or fork the project on GitHub. https://github.com/themanyone/gcodeThumb
