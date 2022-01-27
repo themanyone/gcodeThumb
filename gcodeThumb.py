@@ -22,7 +22,7 @@
 from base64 import b64decode
 from io import BytesIO
 from PIL import Image, ImageDraw
-import sys, time, re
+import sys, time, re, os
 
 # defaults
 size = default_size = (128, 128)
@@ -49,7 +49,7 @@ if len(args) < 2:
     exit(1)
 
 input_gcode = args[1]
-output_png = input_gcode.rstrip('.gcode') + '.png'
+output_png = os.path.splitext(input_gcode)[0]+ '.png'
 if len(args) > 2:
     output_png = args[2]
 if len(args) > 3:
