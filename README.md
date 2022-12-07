@@ -24,6 +24,7 @@ Python3. PIL image library.
 ## Installation
 
    * edit `inst.sh` and `uninst. sh` with your preferred install locations.
+   * Many users prefer to install to ~/.local/share/thumbnailers/
 
 `inst.sh`
 
@@ -37,10 +38,30 @@ Other file managers, like `pcmanfm` and `nautilus`, should work now.
 
 ## Troubleshooting
 
-If no thumbnails are generated, follow the above instruction to clear the thumbnail cache. If it still doesn't work, edit the "MimeType=" line in `/usr/share/thumbnailers/gcode.thumbnailer`. Use `grep -i gcode /usr/share/mime/*` to discover what mimetypes the system is using and try those.
+If no thumbnails are generated, follow the above instruction to clear the thumbnail cache. If it still doesn't work, edit the "MimeType=" line in `/usr/share/thumbnailers/gcode.thumbnailer`. Use `grep -i gcode /usr/share/mime/*` to discover what mimetypes the system is using and try those. Refer to `https://specifications.freedesktop.org/shared-mime-info-spec/` for complete documentation.
 
 Sometimes GTK bugs out, and it becomes necessary to update its icon cache as well.
 
 `gtk-update-icon-cache ~/.local/share/icons/hicolor/ -t`
+
+## Adding on
+
+From the mime info documentation above, you can add thumbnail support for other gcode-like file extensions, such as `*.gc` and `*.nc` by first creating a file called `Override.xml` in `~/.local/share/mime/` like so:
+
+```<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="text/gcode">
+        <sub-class-of type="text/plain"/>
+        <comment>Gcode file</comment>
+        <icon name="unknown"/>
+        <glob-deleteall/>
+        <glob pattern="*.gcode"/>
+        <glob pattern="*.g"/>
+        <glob pattern="*.gc"/>
+        <glob pattern="*.nc"/>
+    </mime-type>
+ </mime-info>
+ ```
+Then run `update-mime-database ~/.local/share/mime` to see them.
 
 Get recent code updates, or fork the project on GitHub. https://github.com/themanyone/gcodeThumb

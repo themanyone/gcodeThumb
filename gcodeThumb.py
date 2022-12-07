@@ -119,6 +119,11 @@ def drawFromGcode(gcode, size):
                         continue
                     digits = re.sub("[^0-9\-\.]+", "", field[1:])
                     f=field[0];
+                    if f=="F":
+                        X = 0
+                        layers.append(draw)
+                        draw = []
+                        break
                     try:
                         val=float(digits)
                     except:
@@ -132,17 +137,14 @@ def drawFromGcode(gcode, size):
                             draw = []
                             oldZ = Z
             
-            # move starting point to center
-            # hides the ugly starting line from 0,0
-            X = img_width/2.0 if X<0.1 else X
-            Y = img_height/2.0 if Y<0.1 else Y
-
-            ZY = Y - Z2
-            draw.append((X, Y - Z2))
-            AX = X if X<AX else AX
-            AY = ZY if ZY<AY else AY
-            BX = X if X>BX else BX
-            BY = ZY if ZY>BY else BY
+            # if we have something to draw, then draw it to scale
+            if X:
+                ZY = Y - Z2
+                draw.append((X, ZY))
+                AX = X if X<AX else AX
+                AY = ZY if ZY<AY else AY
+                BX = X if X>BX else BX
+                BY = ZY if ZY>BY else BY
         elif words[0] == "G27": # park toolhead
             break
 
@@ -155,16 +157,20 @@ def drawFromGcode(gcode, size):
     # draw the image
     d = ImageDraw.Draw(im)
     R,G,B = line_color
-    print(len(layers))
-    if len(layers) > 5:
+    ll = len(layers)
+    if ll > 5:
         layers = layers[3:-2]
-    s = 128 / len(layers)
+    if ll < 25.0:
+        ll = 25.0
+    s = 128.0 / ll
+    print(ll)
     for draw in layers:
         for point in draw:
             (X, Y) = point
             X = (X - AX) * SX
             Y = (Y - AY) * SY
             scaled.append((X, img_height - Y))
+        d.point(scaled)
         d.line(scaled, fill=(int(R),int(G),int(B)), width=2)
         R+=s;B+=s;G+=s
         # reverse shading direction

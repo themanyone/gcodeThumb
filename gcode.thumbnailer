@@ -1,6 +1,3 @@
 [Thumbnailer Entry]
 Exec=/usr/local/bin/gcodeThumb.py %i %o %s
 MimeType=text/gcode
-
-
-
