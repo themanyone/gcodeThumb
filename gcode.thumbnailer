@@ -1,4 +1,4 @@
 [Thumbnailer Entry]
 TryExec=gcodeThumb.py
-Exec=/usr/local/bin/gcodeThumb.py %i %o %s
+Exec=gcodeThumb.py %i %o %s
 MimeType=text/x.gcode
