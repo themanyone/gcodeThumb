@@ -163,7 +163,6 @@ def drawFromGcode(gcode, size):
     if ll < 25.0:
         ll = 25.0
     s = 128.0 / ll
-    print(ll)
     for draw in layers:
         for point in draw:
             (X, Y) = point

@@ -33,6 +33,8 @@ Python3. PIL image library.
 
 Thunar requires `tumbler` to generate thumbnails.
 
+It may be necessary to log out from the desktop session, or reboot.
+
 Other file managers, like `pcmanfm` and `nautilus`, should work now.
 
 ## Troubleshooting
