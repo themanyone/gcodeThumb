@@ -21,7 +21,7 @@ Written with Linux in mind. The Python parts should work on Windows, though. If 
 ## Requirements
 Python3. PIL image library.
 
-## Installation
+## Linux Installation
 
    * edit `inst.sh` and `uninst. sh` with your preferred install locations.
 
@@ -36,6 +36,16 @@ Thunar requires `tumbler` to generate thumbnails.
 It may be necessary to log out from the desktop session, or reboot.
 
 Other file managers, like `pcmanfm` and `nautilus`, should work now.
+
+## Windows Install
+
+Make sure you have python installed.
+
+Manually copy `gcodeThumb.py` to somewhere in `C:\Program Files`
+
+Open regedit and navigate to `HKEY_CLASSES_ROOT\*.gcode`
+
+Set the value of `ThumbnailHandler` to the location of `gcodeThumb.py`
 
 ## Troubleshooting
 
@@ -66,3 +76,11 @@ From the mime info documentation above, you can add thumbnail support for other 
 Then run `update-mime-database ~/.local/share/mime` to see them.
 
 Get recent code updates, or fork the project on GitHub. https://github.com/themanyone/gcodeThumb
+
+## Author's links
+
+    - GitHub https://github.com/themanyone
+    - YouTube https://www.youtube.com/themanyone
+    - Mastodon https://mastodon.social/@themanyone
+    - Linkedin https://www.linkedin.com/in/henry-kroll-iii-93860426/
+    - [TheNerdShow.com](http://thenerdshow.com/)
