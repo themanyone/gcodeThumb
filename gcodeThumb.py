@@ -117,7 +117,7 @@ def drawFromGcode(gcode, size):
                 if len(field) > 3:
                     if field[1] > '9' or field[1] < '-':
                         continue
-                    digits = re.sub("[^0-9\-\.]+", "", field[1:])
+                    digits = re.sub(r"[^0-9-.]+", "", field[1:])
                     f=field[0];
                     if f=="F":
                         X = 0
