@@ -1,4 +1,4 @@
 [Thumbnailer Entry]
 TryExec=gcodeThumb.py
 Exec=gcodeThumb.py %i %o %s
-MimeType=text/x.gcode
+MimeType=text/x.gcode;text/x.gcode-gx;text/x.gcode-gc
