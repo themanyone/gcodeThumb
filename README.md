@@ -27,10 +27,6 @@ Python3. PIL image library.
 
 `inst.sh`
 
-   * Clear cache to regenerate thumbnails.
-
-`rm -rf ~/.cache/thumbnails`
-
 Thunar requires `tumbler` to generate thumbnails.
 
 It may be necessary to log out from the desktop session, or reboot.
@@ -49,7 +45,11 @@ Set the value of `ThumbnailHandler` to the location of `gcodeThumb.py`
 
 ## Troubleshooting
 
-If no thumbnails are generated, follow the above instruction to clear the thumbnail cache. If it still doesn't work, edit the "MimeType=" line in `~/.local/share/thumbnailers/gcode.thumbnailer`. Use `grep -i gcode /usr/share/mime/*` to discover what mimetypes the system is using and try those. Refer to `https://specifications.freedesktop.org/shared-mime-info-spec/` for complete documentation.
+If no thumbnails are generated, clear cache to regenerate thumbnails and reboot or log out & log in.
+
+`rm -rf ~/.cache/thumbnails`
+
+If thumbnails still don't work, edit the "MimeType=" line in `~/.local/share/thumbnailers/gcode.thumbnailer`. Use `grep -i gcode /usr/share/mime/*` to discover what mimetypes the system is using and try those. Refer to `https://specifications.freedesktop.org/shared-mime-info-spec/` for complete documentation.
 
 Sometimes GTK bugs out, and it becomes necessary to update its icon cache as well.
 
@@ -57,7 +57,7 @@ Sometimes GTK bugs out, and it becomes necessary to update its icon cache as wel
 
 ## Adding on
 
-From the mime info documentation above, you can add thumbnail support for other gcode-like file extensions, such as `*.gc` and `*.nc` by first creating a file called `Override.xml` in `~/.local/share/mime/packages` like so:
+From the mime info documentation above, we installed a file we createed called `Override.xml` in `~/.local/share/mime/packages`. It looks like this:
 
 ```<?xml version="1.0" encoding="UTF-8"?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
@@ -70,10 +70,11 @@ From the mime info documentation above, you can add thumbnail support for other 
         <glob pattern="*.g"/>
         <glob pattern="*.gc"/>
         <glob pattern="*.nc"/>
+        <glob pattern="*.ngc"/>
     </mime-type>
  </mime-info>
  ```
-Then run `update-mime-database ~/.local/share/mime` to see them.
+You can edit it and run `update-mime-database ~/.local/share/mime` to generate new types of thumbnails.
 
 Get recent code updates, or fork the project on GitHub. https://github.com/themanyone/gcodeThumb
 

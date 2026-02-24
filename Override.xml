@@ -7,8 +7,8 @@
         <glob-deleteall/>
         <glob pattern="*.gcode"/>
         <glob pattern="*.g"/>
-        <glob pattern="*.gx"/>
         <glob pattern="*.nc"/>
+        <glob pattern="*.ngc"/>
     </mime-type>
     <mime-type type="text/x.gcode-gc">
         <sub-class-of type="text/plain"/>
@@ -16,6 +16,13 @@
         <icon name="gcode"/>
         <glob-deleteall/>
         <glob pattern="*.gc"/>
+    </mime-type>
+    <mime-type type="text/x.gcode-gx">
+        <sub-class-of type="text/plain"/>
+        <comment>Gcode file</comment>
+        <icon name="gcode"/>
+        <glob-deleteall/>
+        <glob pattern="*.gx"/>
     </mime-type>
 </mime-info>
 

@@ -178,7 +178,7 @@ def drawFromGcode(gcode, size):
         scaled = []
     return im
 
-gcode = open(input_gcode, 'r')
+gcode = open(input_gcode, 'r', errors="ignore")
 im = getHeaderThumbs(gcode)
 im = im if im else drawFromGcode(gcode, size)
 im.save(output_png, 'png')
